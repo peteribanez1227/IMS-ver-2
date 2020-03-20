@@ -1,6 +1,6 @@
-{% extends 'base.html' %}
+{% extends "dappx/base.html" %}
 
-{% block content %}
+{% block body_block %}
 
   <title>SB Admin 2 - Dashboard</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -38,7 +38,10 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Interface
+        {% if user.is_authenticated %}
+        <h2>Hello {{ user.username }}</h2>
+        {% else %}
+        {% endif %}
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
@@ -660,4 +663,4 @@
   <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
-{% endblock content %}
+{% endblock %}
